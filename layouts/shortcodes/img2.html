@@ -1,0 +1,40 @@
+<!-- {{ $image1 := .Get 0 }}
+{{ $image2 := .Get 1 }}
+
+<div class="image-container" style="display: flex;">
+    <img src="{{$image1}}" alt="Image 1" width="550" height="550">
+    <img src="{{$image2}}" alt="Image 2" width="550" height="550">
+</div>
+
+
+
+{{ $image1 := .Get "image1" }}
+{{ $width1 := .Get "width1" | default "550" }}
+{{ $height1 := .Get "height1" | default "550" }}
+
+{{ $image2 := .Get "image2" }}
+{{ $width2 := .Get "width2" | default "550" }}
+{{ $height2 := .Get "height2" | default "550" }}
+
+<div class="image-container" style="display: flex;">
+    <img src="{{ $image1 }}" alt="Image 1" width="{{ $width1 }}" height="{{ $height1 }}">
+    <img src="{{ $image2 }}" alt="Image 2" width="{{ $width2 }}" height="{{ $height2 }}">
+</div> -->
+
+{{ if .IsNamedParams }}
+  {{ $image1 = .Get "image1" }}
+  {{ $width1 = .Get "width1" | default "550" }}
+  {{ $height1 = .Get "height1" | default "550" }}
+
+  {{ $image2 = .Get "image2" }}
+  {{ $width2 = .Get "width2" | default "550" }}
+  {{ $height2 = .Get "height2" | default "550" }}
+{{ else }}
+  {{ $image1 = .Get 0 }}
+  {{ $image2 = .Get 1 }}
+{{ end }}
+
+<div class="image-container" style="display: flex;">
+    <img src="{{ $image1 }}" alt="Image 1" width="{{ $width1 }}" height="{{ $height1 }}">
+    <img src="{{ $image2 }}" alt="Image 2" width="{{ $width2 }}" height="{{ $height2 }}">
+</div>

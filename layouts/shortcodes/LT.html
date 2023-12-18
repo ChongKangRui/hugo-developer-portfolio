@@ -1,0 +1,6 @@
+{{ $title := .Get 0 }}
+{{ $headerType := .Get 1 | default "h1" }}
+
+<div style="text-align: left;">
+  <{{ $headerType }}>{{ $title }}</{{ $headerType }}>
+</div>
